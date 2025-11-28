@@ -21,23 +21,23 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
+            background: transparent;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
         }
 
         .offer-card {
             width: 100%;
-            max-width: 380px;
+            max-width: 340px;
             background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 
-                0 25px 80px rgba(138, 43, 226, 0.3),
-                0 10px 30px rgba(0, 0, 0, 0.2);
+                0 15px 50px rgba(138, 43, 226, 0.25),
+                0 5px 20px rgba(0, 0, 0, 0.15);
             position: relative;
             animation: float 3s ease-in-out infinite;
         }
@@ -50,12 +50,12 @@
         /* Fita de desconto */
         .ribbon {
             position: absolute;
-            top: 20px;
-            right: -35px;
+            top: 15px;
+            right: -32px;
             background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
             color: white;
-            padding: 8px 40px;
-            font-size: 12px;
+            padding: 6px 35px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -67,7 +67,7 @@
         /* Header com gradiente */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            padding: 30px 25px 40px;
+            padding: 20px 20px 30px;
             text-align: center;
             position: relative;
         }
@@ -75,10 +75,10 @@
         .header::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 0;
             right: 0;
-            height: 40px;
+            height: 30px;
             background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
             border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
@@ -87,20 +87,20 @@
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 6px 16px;
+            padding: 5px 12px;
             border-radius: 50px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             color: white;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .title {
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 900;
             color: white;
             line-height: 1.2;
@@ -109,11 +109,11 @@
 
         .personalized-name {
             font-family: 'DM Sans', sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 10px;
-            padding: 6px 16px;
+            margin-bottom: 8px;
+            padding: 5px 12px;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 50px;
@@ -127,28 +127,28 @@
 
         /* Corpo do card */
         .body {
-            padding: 35px 25px 30px;
+            padding: 25px 20px 20px;
             text-align: center;
         }
 
         .price-container {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .old-price-label {
-            font-size: 13px;
+            font-size: 11px;
             color: #888;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             font-weight: 500;
         }
 
         .old-price {
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 700;
             color: #ccc;
             text-decoration: line-through;
             text-decoration-color: #ff6b6b;
-            text-decoration-thickness: 3px;
+            text-decoration-thickness: 2px;
             position: relative;
             display: inline-block;
         }
@@ -157,11 +157,11 @@
             display: inline-block;
             background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
             color: white;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-left: 10px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-left: 8px;
             vertical-align: middle;
             animation: pulse 2s infinite;
         }
@@ -172,9 +172,9 @@
         }
 
         .new-price-label {
-            font-size: 14px;
+            font-size: 12px;
             color: #667eea;
-            margin: 20px 0 8px;
+            margin: 12px 0 5px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -182,7 +182,7 @@
 
         .new-price {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
+            font-size: 56px;
             font-weight: 900;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -193,30 +193,30 @@
         }
 
         .new-price .currency {
-            font-size: 28px;
+            font-size: 22px;
             vertical-align: top;
             margin-right: 2px;
         }
 
         .new-price .cents {
-            font-size: 28px;
+            font-size: 22px;
             vertical-align: top;
         }
 
         /* Benefícios */
         .benefits {
             background: linear-gradient(135deg, #f8f4ff 0%, #f0ebff 100%);
-            border-radius: 16px;
-            padding: 20px;
-            margin: 25px 0;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin: 15px 0;
         }
 
         .benefit-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-            font-size: 14px;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 12px;
             color: #444;
         }
 
@@ -225,8 +225,8 @@
         }
 
         .benefit-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
@@ -236,8 +236,8 @@
         }
 
         .benefit-icon svg {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             fill: white;
         }
 
@@ -245,19 +245,19 @@
         .urgency {
             background: linear-gradient(90deg, #fff5f5, #fff0f0);
             border: 1px solid #ffdddd;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 20px;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 12px;
         }
 
         .urgency-text {
-            font-size: 13px;
+            font-size: 11px;
             color: #d63031;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .urgency-icon {
@@ -271,18 +271,18 @@
 
         /* Garantia */
         .guarantee {
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px dashed #e0e0e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .guarantee-icon {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, #00b894, #00cec9);
             border-radius: 50%;
             display: flex;
@@ -291,16 +291,16 @@
         }
 
         .guarantee-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             fill: white;
         }
 
         .guarantee-text {
-            font-size: 12px;
+            font-size: 10px;
             color: #666;
             text-align: left;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .guarantee-text strong {
@@ -311,16 +311,16 @@
         /* Sparkles decorativos */
         .sparkle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #ffd700;
             border-radius: 50%;
             animation: sparkle 2s infinite;
         }
 
-        .sparkle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
-        .sparkle:nth-child(2) { top: 25%; left: 85%; animation-delay: 0.5s; }
-        .sparkle:nth-child(3) { top: 60%; left: 5%; animation-delay: 1s; }
+        .sparkle:nth-child(1) { top: 12%; left: 8%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 20%; left: 82%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { top: 55%; left: 4%; animation-delay: 1s; }
 
         @keyframes sparkle {
             0%, 100% { transform: scale(0); opacity: 0; }
