@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Especial - Adriana Sousa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Pega o nome da URL: ?nome=Maria
+        function getNome() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('nome') || '';
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .offer-card {
+            width: 100%;
+            max-width: 380px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 80px rgba(138, 43, 226, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Fita de desconto */
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
+            color: white;
+            padding: 8px 40px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 15px rgba(238, 90, 90, 0.4);
+            z-index: 10;
+        }
+
+        /* Header com gradiente */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 30px 25px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f4ff 100%);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .personalized-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 10px;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .personalized-name:empty {
+            display: none;
+        }
+
+        /* Corpo do card */
+        .body {
+            padding: 35px 25px 30px;
+            text-align: center;
+        }
+
+        .price-container {
+            margin-bottom: 25px;
+        }
+
+        .old-price-label {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .old-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ccc;
+            text-decoration: line-through;
+            text-decoration-color: #ff6b6b;
+            text-decoration-thickness: 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .discount-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+            vertical-align: middle;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .new-price-label {
+            font-size: 14px;
+            color: #667eea;
+            margin: 20px 0 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .new-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            position: relative;
+        }
+
+        .new-price .currency {
+            font-size: 28px;
+            vertical-align: top;
+            margin-right: 2px;
+        }
+
+        .new-price .cents {
+            font-size: 28px;
+            vertical-align: top;
+        }
+
+        /* Benefícios */
+        .benefits {
+            background: linear-gradient(135deg, #f8f4ff 0%, #f0ebff 100%);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .benefit-item:not(:last-child) {
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        /* Urgência */
+        .urgency {
+            background: linear-gradient(90deg, #fff5f5, #fff0f0);
+            border: 1px solid #ffdddd;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .urgency-text {
+            font-size: 13px;
+            color: #d63031;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .urgency-icon {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Garantia */
+        .guarantee {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .guarantee-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .guarantee-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .guarantee-text {
+            font-size: 12px;
+            color: #666;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .guarantee-text strong {
+            color: #00b894;
+            display: block;
+        }
+
+        /* Sparkles decorativos */
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 25%; left: 85%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { top: 60%; left: 5%; animation-delay: 1s; }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="offer-card">
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        
+        <div class="ribbon">-84% OFF</div>
+        
+        <div class="header">
+            <div class="badge">✨ Oferta Especial</div>
+            <div class="personalized-name" id="nameDisplay"></div>
+            <h1 class="title">Quero meu<br>Desenvolvimento HOJE</h1>
+        </div>
+        
+        <div class="body">
+            <div class="price-container">
+                <div class="old-price-label">Valor normal</div>
+                <span class="old-price">R$ 297,00</span>
+                <span class="discount-tag">-84%</span>
+                
+                <div class="new-price-label">Hoje por apenas</div>
+                <div class="new-price">
+                    <span class="currency">R$</span>47<span class="cents">,00</span>
+                </div>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <span>Suporte direto com Adriana</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <span>Bônus exclusivos inclusos</span>
+                </div>
+            </div>
+            
+            <div class="urgency">
+                <div class="urgency-text">
+                    <span class="urgency-icon">⚡</span>
+                    Oferta válida apenas HOJE
+                </div>
+            </div>
+            
+            <div class="guarantee">
+                <div class="guarantee-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <div class="guarantee-text">
+                    <strong>Garantia de 7 dias</strong>
+                    Satisfação ou seu dinheiro de volta
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Exibe o nome personalizado
+        const nome = getNome();
+        if (nome) {
+            document.getElementById('nameDisplay').textContent = nome + ', essa oferta é pra você! 💜';
+        }
+    </script>
+</body>
+</html>
